@@ -1,6 +1,6 @@
 # Data Structure and Algorithm
 ```cpp
-    #include <iosteeam>
+    #include <iostream>
     int main() {
         std::cout << "Hello world" << std::endl;
         return 0;
