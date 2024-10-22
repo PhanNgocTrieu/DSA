@@ -25,13 +25,14 @@
 */
 
 #include <bits/stdc++.h>
-#include <vector>
 using namespace std;
 
 vector<int> merge_component(const vector<int> &left, const vector<int> &right);
 
-vector<int> merge(const vector<int> arr) {
-  if (arr.size() <= 1) {
+vector<int> merge(const vector<int> arr)
+{
+  if (arr.size() <= 1)
+  {
     return arr;
   }
 
@@ -42,40 +43,50 @@ vector<int> merge(const vector<int> arr) {
   return merge_component(left, right);
 }
 
-vector<int> merge_component(const vector<int> &left, const vector<int> &right) {
+vector<int> merge_component(const vector<int> &left, const vector<int> &right)
+{
   vector<int> result(left.size() + right.size());
   int left_cursor = 0;
   int right_cursor = 0;
   int index_cursor = 0;
 
-  while (left_cursor < left.size() && right_cursor < right.size()) {
-    if (left[left_cursor] > right[right_cursor]) {
+  while (left_cursor < left.size() && right_cursor < right.size())
+  {
+    if (left[left_cursor] > right[right_cursor])
+    {
       result[index_cursor++] = right[right_cursor++];
-    } else {
+    }
+    else
+    {
       result[index_cursor++] = left[left_cursor++];
     }
   }
 
   /* Pushing all the left on left array an right array */
-  while (left_cursor < left.size()) {
+  while (left_cursor < left.size())
+  {
     result[index_cursor++] = left[left_cursor++];
   }
 
-  while (right_cursor < right.size()) {
+  while (right_cursor < right.size())
+  {
     result[index_cursor++] = right[right_cursor++];
   }
-  for (auto v : result) {
+  for (auto v : result)
+  {
     cout << v << " ";
   }
   cout << endl;
   return result;
 }
 
-int main() {
+int main()
+{
   vector<int> unsorted_to_sorted = {3, 5, 1, 2, 5, 8, 10, 21};
   vector<int> sorted = merge(unsorted_to_sorted);
 
-  for (auto elem : sorted) {
+  for (auto elem : sorted)
+  {
     cout << elem << " ";
   }
   cout << endl;
